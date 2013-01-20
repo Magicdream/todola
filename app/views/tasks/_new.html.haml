@@ -1,0 +1,5 @@
+= form_for Task.new, remote: true do |f|
+  = f.text_field :name
+  = f.text_field :priority
+  = f.date_select :due_date
+  = f.submit '+'

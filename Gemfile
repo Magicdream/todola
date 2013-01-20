@@ -10,6 +10,7 @@ gem 'acts_as_list'
 gem 'devise'
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails'
+gem 'state_machine'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

@@ -3,5 +3,6 @@ class User < ActiveRecord::Base
     :rememberable, :trackable, :validatable, :token_authenticatable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
+
+  has_many :tasks, dependent: :destroy
 end

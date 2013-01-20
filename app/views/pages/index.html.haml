@@ -1,7 +1,8 @@
-%h1 Todola app
-
-- if user_signed_in?
-  = link_to 'Sign out', destroy_user_session_path, :method => :delete
-- else
-  = link_to 'Sign in', new_user_session_path
-  = link_to 'Register', new_user_registration_path
+%form.form-signin
+  %h2.form-signin-heading Please sign in
+  %input.input-block-level{:placeholder => "Email address", :type => "text"}
+    %input.input-block-level{:placeholder => "Password", :type => "password"}
+      %label.checkbox
+        %input{:type => "checkbox", :value => "remember-me"}
+          Remember me
+      %button.btn.btn-large.btn-primary{:type => "submit"} Sign in

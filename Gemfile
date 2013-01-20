@@ -8,7 +8,8 @@ gem 'capistrano'
 gem 'debugger'
 gem 'acts_as_list'
 gem 'devise'
-gem 'haml'
+gem 'haml-rails'
+gem 'twitter-bootstrap-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

@@ -1,5 +1,5 @@
 Todola::Application.routes.draw do
   devise_for :users
 
-  root to: 'pages#index'
+  root to: 'tasks#index'
 end

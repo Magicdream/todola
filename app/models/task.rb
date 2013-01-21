@@ -1,8 +1,9 @@
 class Task < ActiveRecord::Base
-  # 1 - high
-  # 2 - medium
-  # 3 - low
-  PRIORITIES = (1..3).to_a
+  PRIORITIES = {
+    1 => :high,
+    2 => :medium,
+    3 => :low
+  }
 
   attr_accessible :name, :priority, :due_date
 
@@ -10,7 +11,7 @@ class Task < ActiveRecord::Base
 
   validates :name, :state, presence: true
   validates :name, length: { maximum: 255 }
-  validates :priority, inclusion: { in: PRIORITIES }
+  validates :priority, inclusion: { in: PRIORITIES.keys }, allow_nil: true
 
   state_machine :state, initial: :pending  do
     state :pending
@@ -22,10 +23,6 @@ class Task < ActiveRecord::Base
   end
 
   def priority_sym
-    case priority
-    when 1 then :high
-    when 2 then :medium
-    when 3 then :low
-    end
+    PRIORITIES[priority]
   end
 end

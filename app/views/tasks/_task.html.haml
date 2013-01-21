@@ -7,7 +7,7 @@
     - if task.completed?
       %span.label.label-success Completed
   %td= task_priority_label(task)
-  %td= task.due_date.to_s(:month_date_year)
+  %td= task.due_date.to_s(:month_date_year) if task.due_date
   %td.actions
     = link_to task, method: :delete, remote: true, confirm: 'Are you really want to remove?' do
       %i.icon-remove>

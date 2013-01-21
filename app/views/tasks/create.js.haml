@@ -1,4 +1,4 @@
 - if @task.errors.empty?
   $('.tasks-list').prepend('#{j render @task}');
 
-$('#new_task').replaceWith('#{j render 'new'}')
+$('#new_task').trigger('empty')

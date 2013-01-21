@@ -5,7 +5,9 @@ class Task < ActiveRecord::Base
     3 => :low
   }
 
-  attr_accessible :name, :priority, :due_date
+  attr_accessible :name, :priority, :due_date, :due_date_fmt
+
+  attr_accessor :due_date_fmt
 
   belongs_to :user
 
@@ -24,5 +26,9 @@ class Task < ActiveRecord::Base
 
   def priority_sym
     PRIORITIES[priority]
+  end
+
+  def due_date_fmt=(value)
+    self.due_date = Date.strptime(value, '%m/%d/%Y') + 1.minute rescue nil
   end
 end

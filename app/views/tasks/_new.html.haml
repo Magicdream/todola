@@ -1,5 +1,11 @@
-= form_for Task.new, remote: true do |f|
+= form_for Task.new, remote: true, html: { class: 'new-task form-horizontal' } do |f|
   = f.text_field :name, placeholder: 'Task name'
-  = f.text_field :priority
+
+  = f.hidden_field :priority
+  .btn-group.priorities(data-toggle="buttons-radio")
+    %button.btn.btn-danger(type="button" data-value="1") High
+    %button.btn.btn-warning(type="button" data-value="2") Medium
+    %button.btn.btn-info(type="button" data-value="3") Low
+
   = f.date_select :due_date
-  = f.submit '+'
+  = f.submit 'Add'

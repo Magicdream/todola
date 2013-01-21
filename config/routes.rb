@@ -7,5 +7,5 @@ Todola::Application.routes.draw do
     end
   end
 
-  root to: 'tasks#index'
+  root to: 'pages#index'
 end

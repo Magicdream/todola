@@ -26,6 +26,16 @@ class Task < ActiveRecord::Base
     end
   end
 
+  def as_json(options = {})
+    super(options.merge(
+      only: [:id, :name, :due_date, :priority, :created_at]
+    ))
+  end
+
+  def errors_a
+    errors.map {|k, v| [k, v] }
+  end
+
   def toggle_complete!
     completed? ? uncomplete! : complete!
   end

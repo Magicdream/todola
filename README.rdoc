@@ -2,3 +2,18 @@
 
 This is sample TODO application, which shows my basic Rails skills. You can register and create your simple TODO-list.
 Mikhail Khomutetckii
+
+== API
+=== Tokens
+Get Token(sign in): curl --data "email=test@test.ru&password=123123123" http://localhost:3000/api/tokens
+Remove token (sign out): curl -X DELETE http://localhost:3000/api/tokens/o8zNU81GgvZKBQd8HAyL
+
+=== Tasks:
+Index: curl http://localhost:3000/api/tasks?auth_token=GPtJVzFcp9H1BpyzTMyy
+Show: curl http://localhost:3000/api/tasks/67?auth_token=skFZBvDpU7fCCb18a7EH
+Destroy: curl -X DELETE http://localhost:3000/api/tasks/67?auth_token=skFZBvDpU7fCCb18a7EH
+Update (Correct): curl -X PUT --data "auth_token=skFZBvDpU7fCCb18a7EH&name=changed&priority=1" http://localhost:3000/api/tasks/66
+Update (see priority Error): curl -X PUT --data "auth_token=skFZBvDpU7fCCb18a7EH&name=changed&priority=0" http://localhost:3000/api/tasks/66
+Mark as completed: curl -X PUT --data "auth_token=skFZBvDpU7fCCb18a7EH" http://localhost:3000/api/tasks/66/complete
+Mark as uncompleted: curl -X PUT --data "auth_token=skFZBvDpU7fCCb18a7EH" http://localhost:3000/api/tasks/66/uncomplete
+

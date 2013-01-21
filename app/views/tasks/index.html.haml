@@ -1,7 +1,16 @@
 .tasks
-  %h1 Tasks
+  %h1 My Tasks
 
   = render 'new'
 
-  .tasks-list
-    = render @tasks
+  %table.table.table-striped.tasks-list
+    - unless @tasks.empty?
+      %thead
+        %tr
+          %th
+          %th
+          %th Priority
+          %th Due date
+          %th
+    %tbody
+      = render @tasks

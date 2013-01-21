@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_tasks, only: [:index, :update]
-  before_filter :find_task, only: [:complete, :destroy, :update, :edit]
+  before_filter :find_task, only: [:toggle_complete, :destroy, :update, :edit]
 
   def index
   end
@@ -21,8 +21,8 @@ class TasksController < ApplicationController
   def edit
   end
 
-  def complete
-    @task.complete!
+  def toggle_complete
+    @task.toggle_complete!
   end
 
   private

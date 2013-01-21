@@ -3,7 +3,7 @@ Todola::Application.routes.draw do
 
   resources :tasks do
     member do
-      post :complete
+      post :toggle_complete
     end
   end
 

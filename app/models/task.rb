@@ -20,6 +20,14 @@ class Task < ActiveRecord::Base
     event :complete do
       transition pending: :completed
     end
+
+    event :uncomplete do
+      transition completed: :pending
+    end
+  end
+
+  def toggle_complete!
+    completed? ? uncomplete! : complete!
   end
 
   def priority_sym

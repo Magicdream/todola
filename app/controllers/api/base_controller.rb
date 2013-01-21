@@ -1,6 +1,6 @@
 class Api::BaseController < ApplicationController
   # TODO: add not found exception handler
-  #rescue_from Exception, with: :error_render_method
+  rescue_from Exception, with: :error_render_method
 
   skip_before_filter :verify_authenticity_token
   respond_to :json

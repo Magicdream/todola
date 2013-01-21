@@ -1,6 +1,6 @@
 == Todola app
 
-This is sample TODO application, which shows my basic Rails skills. You can register and create your simple TODO-list. App is deployed to Heroku http://obscure-gorge-3963.herokuapp.com/.
+This is sample TODO application, which shows my basic Rails skills. You can register and create your simple TODO-list. App is deployed to Heroku http://obscure-gorge-3963.herokuapp.com.
 
 == API
 === Tokens

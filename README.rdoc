@@ -5,18 +5,28 @@ This is sample TODO application, which shows my basic Rails skills. You can regi
 == API
 === Tokens
 Get Token: <tt>curl --data "email=test@test.com&password=123123123" http://obscure-gorge-3963.herokuapp.com/api/tokens</tt>
+
 Get Token with wrong params: <tt>curl --data "email=test@test.com&password=wrong" http://obscure-gorge-3963.herokuapp.com/api/tokens</tt>
+
 Remove token (sign out): <tt>curl -X DELETE http://obscure-gorge-3963.herokuapp.com/api/tokens/KgW9y8uG7WxeyWBpDEeu</tt>
 
 === Tasks:
 Without auth token: <tt>curl http://obscure-gorge-3963.herokuapp.com/api/tasks</tt>
+
 Index: <tt>curl http://obscure-gorge-3963.herokuapp.com/api/tasks?auth_token=R8Bp4ba5UHSwcLZxV9qZ</tt>
+
 Show: <tt>curl http://obscure-gorge-3963.herokuapp.com/api/tasks/1?auth_token=R8Bp4ba5UHSwcLZxV9qZ</tt>
+
 Create: <tt>curl --data "auth_token=R8Bp4ba5UHSwcLZxV9qZ&name=API&priority=1" http://obscure-gorge-3963.herokuapp.com/api/tasks</tt>
+
 Destroy: <tt>curl -X DELETE http://obscure-gorge-3963.herokuapp.com/api/tasks/1?auth_token=R8Bp4ba5UHSwcLZxV9qZ</tt>
+
 Update (Correct): <tt>curl -X PUT --data "auth_token=R8Bp4ba5UHSwcLZxV9qZ&name=changed&priority=1" http://obscure-gorge-3963.herokuapp.com/api/tasks/1</tt>
+
 Update (see priority Error): <tt>curl -X PUT --data "auth_token=R8Bp4ba5UHSwcLZxV9qZ&name=changed&priority=0" http://obscure-gorge-3963.herokuapp.com/api/tasks/1</tt>
+
 Mark as completed: <tt>curl -X PUT --data "auth_token=R8Bp4ba5UHSwcLZxV9qZ" http://obscure-gorge-3963.herokuapp.com/api/tasks/1/complete</tt>
+
 Mark as uncompleted: <tt>curl -X PUT --data "auth_token=R8Bp4ba5UHSwcLZxV9qZ" http://obscure-gorge-3963.herokuapp.com/api/tasks/1/uncomplete</tt>
 
 == Author

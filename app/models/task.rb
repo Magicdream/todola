@@ -31,4 +31,11 @@ class Task < ActiveRecord::Base
   def due_date_fmt=(value)
     self.due_date = Date.strptime(value, '%m/%d/%Y') + 1.minute rescue nil
   end
+
+  def self.search(attribute, direction)
+    attribute ||= 'id'
+    direction ||= 'DESC'
+
+    order("#{attribute} #{direction} NULLS LAST")
+  end
 end

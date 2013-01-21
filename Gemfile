@@ -10,7 +10,6 @@ gem 'devise'
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails'
 gem 'state_machine'
-gem 'meta_search'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

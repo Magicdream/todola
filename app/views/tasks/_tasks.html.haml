@@ -1,0 +1,11 @@
+%table.table.table-striped.tasks-list
+  - unless @tasks.empty?
+    %thead
+      %tr
+        %th
+        %th
+        %th= tasks_sort_link('priority')
+        %th= tasks_sort_link('due_date')
+        %th
+  %tbody
+    = render @tasks

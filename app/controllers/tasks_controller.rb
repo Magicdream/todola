@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_filter :find_task, only: [:complete, :destroy]
 
   def index
-    @tasks = Task.where(user_id: current_user.id).order('id DESC')
+    @tasks = current_user.tasks.search(sort_by, direction)
   end
 
   def create
@@ -18,9 +18,17 @@ class TasksController < ApplicationController
     @task.complete!
   end
 
-  protected
+  private
 
   def find_task
     @task = current_user.tasks.find(params[:id])
+  end
+
+  def sort_by
+    params[:sort_by] if %w{due_date priority}.include?(params[:sort_by])
+  end
+
+  def direction
+    params[:direction] if %w{asc desc}.include?(params[:direction])
   end
 end

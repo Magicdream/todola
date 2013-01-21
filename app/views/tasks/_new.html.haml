@@ -3,9 +3,9 @@
 
   = f.hidden_field :priority
   .btn-group.priorities(data-toggle="buttons-radio")
-    %button.btn.btn-danger(type="button" data-value="1") High
-    %button.btn.btn-warning(type="button" data-value="2") Medium
-    %button.btn.btn-info(type="button" data-value="3") Low
+    %button.btn.btn-mini.btn-danger(type="button" data-value="1") High
+    %button.btn.btn-mini.btn-warning(type="button" data-value="2") Medium
+    %button.btn.btn-mini.btn-info(type="button" data-value="3") Low
 
   = f.text_field :due_date_fmt, placeholder: 'mm/dd/yyyy'
   %button.btn(type="submit")

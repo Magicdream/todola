@@ -7,8 +7,6 @@ class Task < ActiveRecord::Base
 
   attr_accessible :name, :priority, :due_date, :due_date_fmt
 
-  attr_accessor :due_date_fmt
-
   belongs_to :user
 
   validates :name, :state, presence: true
@@ -30,6 +28,10 @@ class Task < ActiveRecord::Base
 
   def due_date_fmt=(value)
     self.due_date = Date.strptime(value, '%m/%d/%Y') + 1.minute rescue nil
+  end
+
+  def due_date_fmt
+    due_date.strftime('%m/%d/%Y') if due_date
   end
 
   def self.search(attribute, direction)

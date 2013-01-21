@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :find_task, only: [:complete, :destroy]
+  before_filter :find_tasks, only: [:index, :update]
+  before_filter :find_task, only: [:complete, :destroy, :update, :edit]
 
   def index
-    @tasks = current_user.tasks.search(sort_by, direction)
   end
 
   def create
@@ -14,11 +14,22 @@ class TasksController < ApplicationController
     @task.destroy
   end
 
+  def update
+    @task.update_attributes(params[:task])
+  end
+
+  def edit
+  end
+
   def complete
     @task.complete!
   end
 
   private
+
+  def find_tasks
+    @tasks = current_user.tasks.search(sort_by, direction)
+  end
 
   def find_task
     @task = current_user.tasks.find(params[:id])

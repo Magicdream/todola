@@ -1,13 +1,16 @@
-%tr.task{id: dom_id(task), class: task.completed? && 'completed'}
+%tr.task{id: dom_id(task), 'data-id' => task.id, class: task.completed? && 'completed'}
   %td
     = form_tag complete_task_path(task), method: :post, remote: true, class: 'complete-task' do
       = check_box_tag :complete, '1', task.completed?
-  %td
+  %td.name
     = task.name
     - if task.completed?
       %span.label.label-success Completed
-  %td= task_priority_label(task)
-  %td= task.due_date.to_s(:month_date_year) if task.due_date
+  %td.priority= task_priority_label(task)
+  %td.due-date
+    = task.due_date.to_s(:month_date_year) if task.due_date
   %td.actions
+    = link_to edit_task_path(task), remote: true do
+      %i.icon-edit
     = link_to task, method: :delete, remote: true, confirm: 'Are you really want to remove?' do
-      %i.icon-trash>
+      %i.icon-trash

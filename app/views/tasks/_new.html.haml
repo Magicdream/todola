@@ -2,12 +2,9 @@
   = f.text_field :name, placeholder: 'Task name', maxlength: 255
 
   = f.hidden_field :priority
-  .btn-group.priorities(data-toggle="buttons-radio")
-    %button.btn.btn-mini.btn-danger(type="button" data-value="1") High
-    %button.btn.btn-mini.btn-warning(type="button" data-value="2") Medium
-    %button.btn.btn-mini.btn-info(type="button" data-value="3") Low
+  = render 'priority_select', task: f.object
 
-  = f.text_field :due_date_fmt, placeholder: 'mm/dd/yyyy'
+  = f.text_field :due_date_fmt, placeholder: 'mm/dd/yyyy', class: 'due-date'
   %button.btn(type="submit")
     %i.icon-plus-sign
     Add

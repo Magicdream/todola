@@ -12,7 +12,7 @@ module TasksHelper
     direction = (current_attribute && params[:direction] == "asc") ? "desc" : "asc"
     arrow = %{<i class="icon-arrow-#{direction == 'asc' ? :up : :down}"></i>} if current_attribute
 
-    link_to "#{title} #{arrow}".html_safe, {sort_by: attribute, direction: direction}, 
+    link_to "#{title} #{arrow}".html_safe, tasks_path(sort_by: attribute, direction: direction), 
       { remote: true, class: css_class }
   end
 
